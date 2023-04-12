@@ -47,3 +47,8 @@ A continuación se muestra un ejemplo de solicitud para buscar todos los registr
 Para obtener más información sobre la API de Scopus, consulte la documentación oficial proporcionada por Elsevier: https://dev.elsevier.com/documentation/ScopusSearchAPI.wadl
 
 
+
+
+-Thomas
+
+
