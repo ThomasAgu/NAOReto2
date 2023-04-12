@@ -19,10 +19,15 @@ La autenticación se realiza mediante un API Key proporcionado por Elsevier. Est
 Algunos de los parametros mas importantes son: 
 
 `query`: especifica la cadena de búsqueda. Ejemplo: **query=TITLE-ABS-KEY**(genome OR sequencing)
+
 `field`:  especifica el campo de búsqueda. Ejemplo: **field=title,abstract**.
+
 `date`:  especifica la fecha de publicación. Ejemplo: **date=2016-2022**.
+
 `sort`:  especifica el orden de los resultados. Ejemplo: **sort=citedby-count**.
+
 `count`:  especifica el numero maximo de resultados que queremos devolver. Ejemplo: **count=10**.
+
 `subj`:  especifica el tipo de codigo de area asociado a la categoria . Ejemplo: **subj=AGRI**.
 
 
