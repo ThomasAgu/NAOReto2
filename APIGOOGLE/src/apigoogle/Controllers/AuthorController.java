@@ -33,8 +33,15 @@ public class AuthorController {
         
     }
 	
+	public void saveAuthors(ArrayList<Author> authors) {
+		
+		for(int i = 0; i< Math.min(authors.size(), 10) ; i++) {
+			authors.get(i).saveAuthor(authors.get(i));
+		}
+	}
 	
-	public ArrayList<Author> getAuthorsDeLaUniversidad() throws IOException, InterruptedException {
+	
+	public void getAuthorsDeLaUniversidad() throws IOException, InterruptedException {
 		
 		/* Esta funcion llama a la API de google Schoolar Profiles, preguntando por 
 		 * aquellos perfiles de la "Universidad del norte" sobre la respuesta de esta 
@@ -81,10 +88,14 @@ public class AuthorController {
 		}
 		
 		//Ordenarlos segun su Citaciones asi tenemos el top10 de investigadores :D
-		autores.sort((autor1, autor2) -> Integer.compare(autor1.getCitations(), autor2.getCitations()));
-		return autores;
+		autores.sort((autor1, autor2) -> Integer.compare(autor2.getCitations(), autor1.getCitations()));
+		
+		this.saveAuthors(autores);
+		
      
 	}
+	
+	
 	
 	
 	

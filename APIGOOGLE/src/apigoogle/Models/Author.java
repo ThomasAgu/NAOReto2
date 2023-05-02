@@ -1,7 +1,11 @@
 package apigoogle.Models;
 
+import java.sql.Statement;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import apigoogle.Utils.ConexionDB;
 
 public class Author {
 	private String author_id;
@@ -19,6 +23,21 @@ public class Author {
 		this.cited_by = cited_by;
 	}
     
+    public void saveAuthor(Author a) {
+    	String sql = "INSERT INTO author (author_id, name, affiliations, cited_by) VALUES ('" + a.getAuthorID()+ "', '" + a.getName()+ "', '" + a.getAffiliation()+ "', '" + a.getCitations()+ "')";
+		System.out.println(sql);
+		try {
+			ConexionDB c = new ConexionDB();
+			Statement stmt = c.getConexion().createStatement();
+			stmt.executeUpdate(sql);
+			stmt.close();
+			c.cerrarConexion();
+		}
+		catch(Exception e) {
+			System.out.println("Hubo un problema en la insercion del articulo");
+		}
+    	
+    }
 
 	public String getAuthorID() {
     	return this.author_id;

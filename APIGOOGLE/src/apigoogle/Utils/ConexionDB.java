@@ -37,7 +37,7 @@ public class ConexionDB {
     	try {
     		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/authordatabase", username, password);
     		Statement stmt = conn.createStatement();
-    		String sql = "DELETE FROM article;";
+    		String sql = "DELETE FROM author;";
     		stmt.execute(sql);
     		conn.close();
 
@@ -51,15 +51,13 @@ public class ConexionDB {
     	try {
     		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/authordatabase", username, password);
     		Statement stmt = conn.createStatement();
-    		String sql = "CREATE TABLE IF NOT EXISTS `article` ( "
-    		        + "`idArticle` int NOT NULL AUTO_INCREMENT, "
-    		        + "`title` varchar(999) DEFAULT NULL, "
-    		        + "`link` varchar(999) DEFAULT NULL, "
-    		        + "`authors` varchar(999) DEFAULT NULL, "
-    		        + "`publication` varchar(999) DEFAULT NULL, "
-    		        + "`year` int DEFAULT NULL, "
+    		String sql = "CREATE TABLE IF NOT EXISTS `author` ( "
+    				+ "`id` int NOT NULL AUTO_INCREMENT, "
+    				+ "`author_id` varchar(999) DEFAULT NULL, "
+    		        + "`name` varchar(999) DEFAULT NULL, "
+    		        + "`affiliations` varchar(999) DEFAULT NULL, "
     		        + "`cited_by` int DEFAULT NULL, "
-    		        + "PRIMARY KEY (`idArticle`) "
+    		        + "PRIMARY KEY (`id`) "
     		        + ") ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
 
     		stmt.execute(sql);
